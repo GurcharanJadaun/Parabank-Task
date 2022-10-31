@@ -13,6 +13,7 @@ public class Hooks extends BaseClass {
 	
 	@After
     public void afterScenario(){
+		
         this.browser.closeBrowser();
     }
 	

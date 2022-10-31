@@ -36,7 +36,8 @@ public class AccountPageSteps extends BaseClass {
 	@Then("I store bank account information for user {int}")
 	public void getUserAccounts(Integer num) throws Throwable {
 		accountsOverviewPage = new AccountsOverviewPage();
-		accountsOverviewPage.storeBankBalanceForUser(num);
+		boolean result = accountsOverviewPage.storeBankBalanceForUser(num);
+		assertEquals(result,true,"<<Something went wrong while fetching account details>>");
 	}
 
 	@Then("^I verify (.*) is displayed on Bill Service Panel$")

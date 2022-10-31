@@ -69,7 +69,8 @@ public class AccountsOverviewPage extends BaseClass {
 		
 	}
 	
-	public void storeBankBalanceForUser(int num) {
+	public boolean storeBankBalanceForUser(int num) {
+		boolean result = true;
 		if (accountRows.size() < 2) {
 			int maxTry = 5;
 			while (accountRows.size() < 2 && maxTry > 0) {
@@ -93,6 +94,9 @@ public class AccountsOverviewPage extends BaseClass {
 			obj.addAccountInformation(accountNumber.get(index), balance.get(index), availableBalance.get(index));
 		}
 		this.runParameters.updateUserData(num, obj);
+		
+		result = accountNumber.size() > 0;
+		return result;
 	}
 
 }
